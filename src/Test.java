@@ -9,6 +9,7 @@ public class Test {
 //        Solution.testNewspaper();
 //        Solution.testGetDiff();
 //        Solution.testGetEvenOrOdd();
-        Solution.testRotateMatrix();
+//        Solution.testRotateMatrix();
+        Solution.testCheckObstacle();
     }
 }

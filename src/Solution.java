@@ -215,5 +215,39 @@ public class Solution {
 
     }
 
+    // ***************** check obstacle ***********
+    public static List<Integer> checkObstacle(int[][] operations) {
+        TreeSet<Integer> treeSet = new TreeSet<>((a, b) -> b - a);
 
+        List<Integer> res = new ArrayList<>();
+
+        for (int i = 0; i < operations.length; i++) {
+            if (operations[i][0] == 1) {
+                treeSet.add(operations[i][1]);
+            } else {
+                Integer r = treeSet.ceiling(operations[i][1] - 1);
+                if (r == null || operations[i][2] < operations[i][1] - r) {
+                    res.add(1);
+                } else {
+                    res.add(0);
+                }
+            }
+        }
+        return res;
+    }
+
+    public static void testCheckObstacle() {
+        int[][] operations = new int[][]{
+                {1, 2},
+                {1, 5},
+                {2, 5, 2},
+                {2, 6, 3},
+                {2, 2, 1},
+                {2, 3, 2}
+        };
+        List<Integer> res = checkObstacle(operations);
+        for (int i = 0; i < res.size(); i++) {
+            System.out.println(res.get(i));
+        }
+    }
 }
