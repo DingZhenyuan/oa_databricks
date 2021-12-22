@@ -172,5 +172,48 @@ public class Solution {
 //        System.out.printf(getTicket());
     }
 
+    //****************** rotate matrix **********
+    public static void rotateMatrix(int[][] matrix) {
+        int m = matrix.length;
+        for (int i = 0; i < m / 2; i++) {
+            for (int j = i + 1; i + j < m - 1; j++) {
+                int first = matrix[i][j];
+                int r = i;
+                int c = j;
+                for (int k = 0; k < 3; k++) {
+                    matrix[r][c] = matrix[m - 1 - c][r];
+                    int temp = r;
+                    r = m - 1 - c;
+                    c = temp;
+                }
+                matrix[r][c] = first;
+            }
+        }
+    }
+
+    private static void swap(int[][] matrix, int r1, int c1, int r2, int c2) {
+        int temp = matrix[r1][c1];
+        matrix[r1][c1] = matrix[r2][c2];
+        matrix[r2][c2] = temp;
+    }
+
+    public static void testRotateMatrix() {
+        int[][] matrix = new int[][] {
+                {1, 2, 3, 4, 5},
+                {6, 7, 8, 9, 10},
+                {11, 12, 13, 14, 15},
+                {16, 17, 18, 19, 20},
+                {21, 22, 23, 24, 25}
+        };
+        rotateMatrix(matrix);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
 
 }

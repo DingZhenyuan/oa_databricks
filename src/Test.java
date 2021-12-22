@@ -8,6 +8,7 @@ public class Test {
     public static void main(String[] args) {
 //        Solution.testNewspaper();
 //        Solution.testGetDiff();
-        Solution.testGetEvenOrOdd();
+//        Solution.testGetEvenOrOdd();
+        Solution.testRotateMatrix();
     }
 }
